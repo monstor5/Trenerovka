@@ -115,7 +115,7 @@ class MainActivity2 : AppCompatActivity() {
                                 .setMessage("Ты куда зашёл ?")
                                 .setView(createButton())
 
-                                .setNegativeButton("Назат") { _, _ -> ses == 1}
+                                .setNegativeButton("Назат") { _, _ -> ses == 0}
 
 
 
