@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity4"
+    android:background="#ffff19">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="131dp"
+        android:layout_height="36dp"
+        android:text="Отжимания"
+
+        android:textAllCaps="false"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="23dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.404" />
+
+    <TextView
+        android:id="@+id/text"
+
+        android:layout_width="93dp"
+        android:layout_height="51dp"
+        android:text="1"
+        android:textColor="@android:color/holo_orange_light"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textv"
+        app:layout_constraintStart_toStartOf="@+id/textv"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.294" />
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="64dp"
+        android:layout_height="72dp"
+        android:background="@android:color/transparent"
+        android:text="-"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/text"
+        app:layout_constraintEnd_toStartOf="@+id/text"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/but"
+        app:layout_constraintTop_toTopOf="@+id/text"
+        app:layout_constraintVertical_bias="0.38" />
+
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="58dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="4dp"
+        android:background="@android:color/transparent"
+        android:text="+"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/text"
+        app:layout_constraintEnd_toEndOf="@+id/but2"
+        app:layout_constraintStart_toEndOf="@+id/text"
+        app:layout_constraintTop_toTopOf="@+id/text"
+        app:layout_constraintVertical_bias="0.47" />
+
+    <TextView
+        android:id="@+id/textv"
+
+        android:layout_width="93dp"
+        android:layout_height="51dp"
+        android:text="1"
+        android:textColor="@android:color/holo_orange_light"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.449"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.56" />
+
+    <Button
+        android:id="@+id/but"
+        android:layout_width="64dp"
+        android:layout_height="72dp"
+        android:background="@android:color/transparent"
+        android:text="-"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textv"
+        app:layout_constraintEnd_toStartOf="@+id/textv"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textv"
+        app:layout_constraintVertical_bias="0.38" />
+
+    <Button
+        android:id="@+id/but2"
+        android:layout_width="58dp"
+        android:layout_height="68dp"
+        android:background="@android:color/transparent"
+        android:text="+"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textv"
+        app:layout_constraintStart_toEndOf="@+id/textv"
+        app:layout_constraintTop_toTopOf="@+id/textv" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:text="От"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/text"
+        app:layout_constraintEnd_toEndOf="@+id/text"
+        app:layout_constraintStart_toStartOf="@+id/text"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.568"
+        android:textColor="@android:color/holo_orange_dark"/>
+
+    <TextView
+        android:id="@+id/textVi"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:text="До"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/textv"
+        app:layout_constraintEnd_toEndOf="@+id/textv"
+        app:layout_constraintStart_toStartOf="@+id/textv"
+        app:layout_constraintTop_toBottomOf="@+id/text"
+        app:layout_constraintVertical_bias="0.45" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button10"
+        android:layout_width="196dp"
+        android:layout_height="54dp"
+        android:text="Продолжить"
+        android:textAllCaps="false"
+        android:textSize="20dp"
+        android:textColor="@android:color/holo_orange_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textv"
+        app:layout_constraintStart_toStartOf="@+id/textv"
+        app:layout_constraintTop_toBottomOf="@+id/textv"
+        app:cornerRadius="10dp"
+        android:backgroundTint="#ffff19"
+        app:strokeWidth="0.6dp"
+        app:strokeColor="@color/black"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

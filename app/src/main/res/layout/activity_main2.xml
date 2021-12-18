@@ -12,12 +12,13 @@
         android:id="@+id/list2"
         android:layout_width="140dp"
         android:layout_height="431dp"
+        android:layout_marginTop="44dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/but3"
-        app:layout_constraintVertical_bias="0.987" />
+        app:layout_constraintTop_toTopOf="@+id/View2"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ListView
         android:id="@+id/list"
@@ -40,7 +41,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/list2"
         app:layout_constraintTop_toBottomOf="@+id/but"
-        app:layout_constraintVertical_bias="0.784" />
+        app:layout_constraintVertical_bias="0.991" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/out"
@@ -56,33 +57,38 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.085">
+        app:layout_constraintVertical_bias="0.041">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/klo"
-            android:text= ""
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:text="" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/but3"
         android:layout_width="190dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="81dp"
         android:width="10dp"
-        android:background="@android:color/transparent"
+        android:backgroundTint="#ffff19"
+
         android:text="Добавить"
         android:textAllCaps="false"
+        android:textColor="@android:color/holo_orange_dark"
         android:textSize="20dp"
+        app:cornerRadius="9dp"
         app:iconPadding="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/View2"
+        app:layout_constraintBottom_toTopOf="@+id/list2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/out"
-        app:layout_constraintVertical_bias="0.588" />
+        app:layout_constraintVertical_bias="1.0"
+        app:strokeColor="@android:color/black"
+        app:strokeWidth="0.6dp" />
 
     <TextView
         android:id="@+id/View"
@@ -103,17 +109,17 @@
         android:layout_width="136dp"
         android:layout_height="47dp"
 
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="230dp"
+
         android:text="Номер участника"
         android:textAllCaps="false"
-
         android:textSize="18dp"
-        app:layout_constraintBottom_toTopOf="@+id/list3"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/View3"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/View"
-        app:layout_constraintTop_toBottomOf="@+id/out"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="@+id/out"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/View3"
@@ -128,6 +134,24 @@
         app:layout_constraintTop_toBottomOf="@+id/but3"
         app:layout_constraintVertical_bias="1.0" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/but"
+        android:layout_width="189dp"
+        android:layout_height="51dp"
+        android:backgroundTint="#ffff19"
+        android:text="Продолжить"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textAllCaps="false"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/but3"
+        app:layout_constraintEnd_toEndOf="@+id/but3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/but3"
+        app:layout_constraintTop_toBottomOf="@+id/out"
+        app:strokeColor="@android:color/black"
+        app:strokeWidth="0.6dp"
+        app:cornerRadius="9dp"
+       />
 
 
 

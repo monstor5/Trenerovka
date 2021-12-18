@@ -7,6 +7,7 @@ import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Parcelable
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -14,6 +15,7 @@ import android.widget.ListView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.graphics.toColor
 import androidx.core.graphics.toColorInt
 @Suppress("UNREACHABLE_CODE")
@@ -23,15 +25,15 @@ class MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
         /////////////////////////////
-
+val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.but)
         var plo = 0
-        var lydi= intent.getStringExtra("lydi".toString())
+        var lydi= intent.getStringExtra("lydi")
         var k = lydi
         val aB = supportActionBar
         aB!!.title = "Отжимашки"
         aB.setDisplayHomeAsUpEnabled(true)
-        val dobav = findViewById<Button>(R.id.but3)
-        dobav.width = Color.BLACK
+        val dobav = findViewById<com.google.android.material.button.MaterialButton>(R.id.but3)
+
         var klo = findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.klo)
         var kol = findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.klo).text
         val list = findViewById<ListView>(R.id.list)
@@ -39,7 +41,7 @@ class MainActivity2 : AppCompatActivity() {
         val list3 = findViewById<ListView>(R.id.list3)
 /////////////////////////////////////////////////
 
-
+       
         val kak = findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.out)
         if (k != null) {
 
@@ -50,15 +52,17 @@ class MainActivity2 : AppCompatActivity() {
 
 
 
-            dobav.setOnClickListener {
+           dobav.setOnClickListener {
+
                 if (plo == 0){
                     plo += 1}
                 // TODO: сделать чтобы выходило по порядку
                 val pol = MutableList(k.toInt()) {
-                    (kol).toString()
+                    (findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.klo).text).toString()
                 }
+
                 val kolich = MutableList(k.toInt()) {
-                    (it + 1).toInt()
+                    (it + 1)
                 }
                 val off = MutableList (k.toInt()){
                     "Убрать"
@@ -152,6 +156,9 @@ class MainActivity2 : AppCompatActivity() {
                     }
                 } }
 
+            
+
+
 
 /////////////////////////////////////////////////////
 
@@ -185,12 +192,12 @@ class MainActivity2 : AppCompatActivity() {
 
 
         }
-    }var ses = 0
+}var ses = 0
 
     var gog = 0
 
-
-
+   
+    
     @SuppressLint("CutPasteId")                                  //
     private fun createButton(): Button {                                 //
         return Button(this).apply {
@@ -215,6 +222,8 @@ class MainActivity2 : AppCompatActivity() {
             }
         }
     }
+
+
 }
 
 

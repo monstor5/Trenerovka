@@ -100,10 +100,10 @@ class MainActivity : AppCompatActivity() {
 
         prod.setOnClickListener {
             if (lydi > 0 && lydi < 21) {
-                var intent = Intent(this@MainActivity, MainActivity2::class.java).apply {
-                    putExtra("lydi", "$lydi" )
+                var ntent = Intent(this@MainActivity, MainActivity2::class.java).apply {
+                    putExtra("lydi", "$lydi")
                 }
-                startActivity(intent)
+                startActivity(ntent)
 
             }
         }
