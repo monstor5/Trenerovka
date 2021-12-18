@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:backgroundTint="#E3FA03"
+    tools:context=".MainActivity3">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/op"
+        android:layout_width="165dp"
+        android:layout_height="53dp"
+        android:backgroundTint="@android:color/transparent"
+        android:text="Продолжить"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:cornerRadius="15dp"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/out1"
+        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintStart_toStartOf="@+id/out1"
+        app:layout_constraintTop_toBottomOf="@+id/out1"
+        app:layout_constraintVertical_bias="0.196"
+        app:strokeColor="@color/black"
+        app:strokeWidth="1dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/out"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="231dp"
+        android:layout_height="55dp"
+        android:hint="Пароль (1,2,3...)"
+        android:textColor="@android:color/holo_red_light"
+        android:textColorHint="@android:color/black"
+        app:boxStrokeColor="#0BE1A4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.388"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.153">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/klo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/out1"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="232dp"
+        android:layout_height="53dp"
+        android:hint="Пароль (a-z , A-Z ...)"
+        android:textColor="@android:color/holo_red_light"
+        android:textColorHint="@android:color/black"
+        app:boxStrokeColor="#0BE1A4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/out"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/out"
+        app:layout_constraintTop_toBottomOf="@+id/out"
+        app:layout_constraintVertical_bias="0.085">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/klo1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
