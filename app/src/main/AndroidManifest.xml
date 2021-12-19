@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Trenerovka">
         <activity
+            android:name=".MainActivity5"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity4"
             android:parentActivityName=".MainActivity2" />
         <activity android:name=".MainActivityk" />

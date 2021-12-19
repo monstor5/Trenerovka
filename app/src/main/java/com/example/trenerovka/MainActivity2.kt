@@ -45,7 +45,7 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
         val kak = findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.out)
         if (k != null) {
 
-            val momn = (0..k.toInt())
+
             if (k.toInt() == 1){
                 kak.hint = "Укакжи своё имя !"
             }
@@ -114,27 +114,17 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
                     list2.setOnItemClickListener { parent, view, position, id -> ses += 0
                         if (k.toInt() == 5&& kol.toString() == "Жора"){
                             AlertDialog.Builder(this)
-
                                 .setTitle(" Error 002")
                                 .setMessage("Ты куда зашёл ?")
                                 .setView(createButton())
-
                                 .setNegativeButton("Назат") { _, _ -> ses == 0}
-
-
-
                                 .create()
                                 .show()}
                         else {
                             AlertDialog.Builder(this)
-
                                 .setTitle(" Error 002")
                                 .setMessage("Ты куда зашёл ?")
-
-
                                 .setNegativeButton("Назат") { _, _ -> ses == 0 }
-
-
                                 .create()
                                 .show()
                         }
@@ -155,42 +145,6 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
 
                     }
                 } }
-
-            
-
-
-
-/////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
 }var ses = 0
 

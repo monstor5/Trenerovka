@@ -1,159 +1,75 @@
 package com.example.trenerovka
-//
-import android.annotation.SuppressLint
+
 import android.content.Intent
-import android.content.res.ColorStateList
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
-
-@Suppress("UNREACHABLE_CODE")
+import android.preference.PreferenceManager
+import android.widget.*
+import com.google.android.material.textfield.TextInputEditText
 
 //
 class MainActivity : AppCompatActivity() {
+
+val remove = mutableListOf<String>(
+
+)
+    val players = mutableListOf<String>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        var l = 0
+      l  =   PreferenceManager
+            .getDefaultSharedPreferences(applicationContext)
+            .getInt("l" , 10)
 
 
-        //
-        val kol =findViewById<TextView>(R.id.text)
-        val l = 1
-
-
-        val min = findViewById<Button>(R.id.button)
-        //
-        val plus = findViewById<Button>(R.id.button2)
-        //
-
-
-        //
-        val prod = findViewById<Button>(R.id.but)
-        //
-
-        kol.text = "       $lydi"
-        min.setOnClickListener{
-
-
-
-
-
-            if (lydi < 2) {
-                AlertDialog.Builder(this)
-
-                        .setTitle(" Error 002")
-                        .setMessage("Меньше 1 нельзя")
-                        .setView(createButton())
-
-                        .setNegativeButton("Назат") { _, _ ->  kol.text = "       $lydi"}
-                        .setPositiveButton("закрыть приложение") { _, _ ->
-                            finish()
-                        }
-
-
-                        .create()
-                        .show()
-
-                lydi += k
-                kol.text = "       $lydi"
-
+        val textName = findViewById<TextInputEditText>(R.id.klo)
+        val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.but)
+        findViewById<Button>(R.id.but3).setOnClickListener {
+            if (textName.text.toString() == ""){
+                textName.error = "Введи имя"
 
             }
-            lydi -= l
-            kol.text = "       $lydi"
-        }
+            if (textName.text.toString() != ""){
+
+l += 1
 
 
-        //
+            players.add(textName.text.toString())
+                remove.add("Удалить" )
+            textName.text?.clear()
+            findViewById<ListView>(R.id.listView).adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, players)
+            findViewById<ListView>(R.id.list2).adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, remove)
+            findViewById<ListView>(R.id.list2).setOnItemClickListener { adapterView, view, i, l ->
+                players.removeAt(0)
+                findViewById<ListView>(R.id.listView).adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, players)
+                remove.removeAt(0)
+                findViewById<ListView>(R.id.list2).adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, remove)
 
-        plus.setOnClickListener{
-
-            ////////
-
-
-            ///////////////////
-            if (lydi > 19) {
-                AlertDialog.Builder(this)
-
-                        .setTitle(" Error 001")
-                        .setMessage("Больше 20 нельзя")
-                        .setView(createButton())
-                        .setNegativeButton("Назат") { _, _ ->  kol.text = "       $lydi" }
-                        .setPositiveButton("закрыть приложение") { _, _ ->
-                            finish()
-                        }
-
-
-                        .create()
-                        .show()
-
-                lydi -= 20
-                kol.text = "       $lydi"
             }
-            lydi += l
-            kol.text = "       $lydi"
 
-        }
-
+            PreferenceManager
+                    .getDefaultSharedPreferences(applicationContext)
+                .edit()
+                .putInt("l" , l)
+                .commit()
+        }  }
         prod.setOnClickListener {
-            if (lydi > 0 && lydi < 21) {
-                var ntent = Intent(this@MainActivity, MainActivity2::class.java).apply {
-                    putExtra("lydi", "$lydi")
-                }
-                startActivity(ntent)
+            if (players.isEmpty()){
+                textName.error = "Введи имя"
 
             }
-        }
-        //////////////////////////////////////
-
-
-
-
-    }
-    var lydi = 1
-    val k = 20
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    ///////////////////////////////////////////////////////////////////////////
-    @SuppressLint("CutPasteId")                                  //
-    private fun createButton(): Button {                                 //
-        return Button(this).apply {
-            setText ("Минимальное нужное значение(2) " +
-                    "(если вы с кем то)")
-            backgroundTintList =
-                    ColorStateList.valueOf(Color.TRANSPARENT)
-            setOnClickListener {
-                if (lydi > 18){
-                    lydi -= 18
-
+            if (players.isNotEmpty()){
+                val intent = Intent (this@MainActivity , MainActivity4::class.java).apply {
+                    putExtra("play", "$players")
                 }
-                if (lydi == 1){
-                    lydi += 1
-
-                }
-
+                startActivity(intent)
             }
+
+
         }
     }
-
-
-
 }
+
+
