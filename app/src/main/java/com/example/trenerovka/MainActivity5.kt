@@ -17,9 +17,9 @@ import android.widget.TextView
             override fun onCreate(savedInstanceState: Bundle?) {
                 super.onCreate(savedInstanceState)
                 setContentView(R.layout.activity_main5)
-                  PreferenceManager
+                val op =  PreferenceManager
                         .getDefaultSharedPreferences(applicationContext)
-                        .getInt("l" , 10)
+                        .getString("op" , "")
 var sws = findViewById<TextView>(R.id.textView9)
                 var ss = findViewById<TextView>(R.id.textView8)
                 val zx = findViewById<Button>(R.id.but)
@@ -44,6 +44,11 @@ var sws = findViewById<TextView>(R.id.textView9)
                     }
                     startActivity(ntent)
                 }
-        }
+                PreferenceManager
+                        .getDefaultSharedPreferences(applicationContext)
+                        .edit()
+                        .putString("op" , op)
+                        .commit()
+            }
 }
 var gg = 0
