@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Trenerovka">
+        <activity android:name=".MainActivity5"></activity>
         <activity
             android:name=".MainActivity4"
             android:parentActivityName=".MainActivity2" />
