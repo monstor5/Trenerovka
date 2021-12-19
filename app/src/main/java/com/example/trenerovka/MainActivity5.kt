@@ -17,23 +17,25 @@ import android.widget.TextView
             override fun onCreate(savedInstanceState: Bundle?) {
                 super.onCreate(savedInstanceState)
                 setContentView(R.layout.activity_main5)
-                val op =  PreferenceManager
-                        .getDefaultSharedPreferences(applicationContext)
-                        .getString("op" , "")
+
 var sws = findViewById<TextView>(R.id.textView9)
                 var ss = findViewById<TextView>(R.id.textView8)
-                val zx = findViewById<Button>(R.id.but)
-                val op = intent.getStringExtra("op" )
-                val ot = intent.getStringExtra("ot" )
+                var zx = findViewById<Button>(R.id.but)
 
+                bhb =  PreferenceManager
+                        .getDefaultSharedPreferences(applicationContext)
+                        .getInt("op" , 0)
+                bhb2 =  PreferenceManager
+                        .getDefaultSharedPreferences(applicationContext)
+                        .getInt("ot" , 0)
 
                 var jkj = findViewById<TextView>(R.id.textView7)
-                if (op != null && ot != null && mmn == 0){
+                if (bhb != null && bhb2 != null && mmn == 0){
                     jkj.text = (pol?.shuffled().take(1) ).toString()
-                    ss.text =  (op.toInt()..ot.toInt()).random().toString()
+                    ss.text =  ((bhb.toInt()..bhb2.toInt()).random()).toString()
             }
 
-            if (op != null && ot != null && mmn != 0){
+            if (bhb != null && bhb2 != null && mmn != 0){
                 jkj.text = (pol?.shuffled().take(1) ).toString()
                 ss.text =  mmn.toString()
             }
@@ -47,7 +49,9 @@ var sws = findViewById<TextView>(R.id.textView9)
                 PreferenceManager
                         .getDefaultSharedPreferences(applicationContext)
                         .edit()
-                        .putString("op" , op)
+                        .putInt("op" , bhb)
+                        .putInt( "ot", bhb2)
+
                         .commit()
             }
 }
