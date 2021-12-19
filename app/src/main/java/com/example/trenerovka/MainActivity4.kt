@@ -15,7 +15,7 @@ class MainActivity4 : AppCompatActivity() {
         val aB = supportActionBar
         aB!!.title = "Отжимашки"
         aB.setDisplayHomeAsUpEnabled(true)
-        val lydi = intent.getStringExtra("play")
+
         val plu = findViewById<Button>(R.id.button2)
         val plu2 = findViewById<Button>(R.id.but2)
         val min  = findViewById<Button>(R.id.button)
@@ -43,7 +43,7 @@ class MainActivity4 : AppCompatActivity() {
         }
         prod.setOnClickListener {
             val intent = Intent (this@MainActivity4 , MainActivity5::class.java).apply {
-                putExtra("lydi", "$lydi")
+
                 putExtra("op", "$bhb")
                 putExtra("ot", "$bhb2")
             }

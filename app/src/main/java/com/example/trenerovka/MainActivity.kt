@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
 val remove = mutableListOf<String>(
 
 )
-    val players = mutableListOf<String>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,7 +62,7 @@ l += 1
             }
             if (players.isNotEmpty()){
                 val intent = Intent (this@MainActivity , MainActivity4::class.java).apply {
-                    putExtra("play", "$players")
+
                 }
                 startActivity(intent)
             }
@@ -73,3 +73,4 @@ l += 1
 }
 
 
+val players = mutableListOf<String>()
