@@ -3,6 +3,7 @@ package com.example.trenerovka
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.widget.Button
 import android.widget.TextView
 
@@ -16,6 +17,9 @@ import android.widget.TextView
             override fun onCreate(savedInstanceState: Bundle?) {
                 super.onCreate(savedInstanceState)
                 setContentView(R.layout.activity_main5)
+                  PreferenceManager
+                        .getDefaultSharedPreferences(applicationContext)
+                        .getInt("l" , 10)
 var sws = findViewById<TextView>(R.id.textView9)
                 var ss = findViewById<TextView>(R.id.textView8)
                 val zx = findViewById<Button>(R.id.but)
