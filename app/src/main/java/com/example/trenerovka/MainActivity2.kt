@@ -57,9 +57,7 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
                 if (plo == 0){
                     plo += 1}
                 // TODO: сделать чтобы выходило по порядку
-                val pol = MutableList(k.toInt()) {
-                    (findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.klo).text).toString()
-                }
+
 
                 val kolich = MutableList(k.toInt()) {
                     (it + 1)
@@ -74,6 +72,7 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
                 if (kol.toString() != ""){
                     klo.text
                     kak.error = null
+                    pol.add(klo.text)
 
                     list.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , pol)
                     list.setOnItemClickListener { parent, view, position, id ->
@@ -230,3 +229,4 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
 
 
 
+val pol = mutableListOf<String>()
