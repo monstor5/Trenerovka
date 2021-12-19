@@ -17,11 +17,22 @@ import android.widget.TextView
             override fun onCreate(savedInstanceState: Bundle?) {
                 super.onCreate(savedInstanceState)
                 setContentView(R.layout.activity_main5)
-
+                var jkj = findViewById<TextView>(R.id.textView7)
 var sws = findViewById<TextView>(R.id.textView9)
                 var ss = findViewById<TextView>(R.id.textView8)
                 var zx = findViewById<Button>(R.id.but)
                 var zgh = findViewById<Button>(R.id.but5)
+                var zg = findViewById<Button>(R.id.but6)
+                zg.setOnClickListener {
+                    jkj.text = PreferenceManager
+                            .getDefaultSharedPreferences(applicationContext)
+                            .getString("jkj" , "")
+                    ss.text = PreferenceManager
+                            .getDefaultSharedPreferences(applicationContext)
+                            .getString("ss", "")
+
+
+                }
                         zgh.setOnClickListener {
                             bhb =  PreferenceManager
                         .getDefaultSharedPreferences(applicationContext)
@@ -30,7 +41,7 @@ var sws = findViewById<TextView>(R.id.textView9)
                         .getDefaultSharedPreferences(applicationContext)
                         .getInt("ot" , 0)
             }
-                var jkj = findViewById<TextView>(R.id.textView7)
+
                 if (bhb != null && bhb2 != null && mmn == 0){
                     jkj.text = (pol?.shuffled().take(1) ).toString()
                     ss.text =  ((bhb.toInt()..bhb2.toInt()).random()).toString()
@@ -52,7 +63,8 @@ var sws = findViewById<TextView>(R.id.textView9)
                         .edit()
                         .putInt("op" , bhb)
                         .putInt( "ot", bhb2)
-
+                        .putString("jkj", jkj.text.toString())
+                        .putString("ss", ss.text.toString())
                         .commit()
             }
 }

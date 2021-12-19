@@ -37,6 +37,7 @@ val sf = findViewById<Button>(R.id.bu2)
 
         kol.text = "       $lydi"
         if (gg == 1){
+            gg -= 1
             sf.visibility = VISIBLE
             sf.setOnClickListener {
                 var lntent = Intent(this@MainActivity, MainActivity5::class.java).apply {
