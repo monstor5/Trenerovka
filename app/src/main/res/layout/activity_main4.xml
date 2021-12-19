@@ -28,7 +28,7 @@
 
         android:layout_width="93dp"
         android:layout_height="51dp"
-        android:text="1"
+        android:text="0"
         android:textColor="@android:color/holo_orange_light"
         android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"

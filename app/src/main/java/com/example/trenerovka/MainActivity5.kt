@@ -20,8 +20,12 @@ import android.widget.TextView
 
 
                 var jkj = findViewById<TextView>(R.id.textView7)
-                if (op != null && ot != null)
+                if (op != null && ot != null && mmn == 0){
                     jkj.text = (pol?.shuffled().take(1) + (op.toInt()..ot.toInt()).random()).toString()
             }
-        }
 
+            if (op != null && ot != null && mmn != 0){
+                jkj.text = (pol?.shuffled().take(1) + mmn.toInt()).toString()
+            }
+        }
+}

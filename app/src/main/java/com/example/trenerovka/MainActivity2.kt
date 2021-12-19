@@ -72,7 +72,7 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
                     sg += 1
                     pol.add(klo.text.toString())
       off.add("Удалить")
-
+        klo.text.count()
                     list.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , pol)
                     list.setOnItemClickListener { parent, view, position, id ->
                         ses += 1
@@ -123,7 +123,7 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
 
                     }
                 }
-               if (kol.toString() != "" && sg > k.toInt()){
+               if (kol.toString() != "" && sg == k){
                    ses += 4
                    AlertDialog.Builder(this)
                        .setTitle(" Error 003")
@@ -133,6 +133,8 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
                        .setNegativeButton("Назат") { _, _ ->ses = 0
 
                        }
+                           .create()
+                           .show()
 
                }
            }
@@ -155,6 +157,8 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
                         .setNegativeButton("Назат") { _, _ ->
 
                             }
+                            .create()
+                            .show()
                     else{
                         AlertDialog.Builder(this)
 
@@ -165,7 +169,8 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
                             .setNegativeButton("Назат") { _, _ ->
 
                             }
-
+                                .create()
+                                .show()
 
                     }
                         }
@@ -180,6 +185,8 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
                         .setNegativeButton("Назат") { _, _ ->ses = 0
 
                         }
+                            .create()
+                            .show()
                 }
 
                 }
