@@ -25,10 +25,11 @@ class MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
         /////////////////////////////
+        var sg = 0
 val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.but)
         var plo = 0
-        var lydi= intent.getStringExtra("lydi")
-        var k = lydi
+
+
         val aB = supportActionBar
         aB!!.title = "Отжимашки"
         aB.setDisplayHomeAsUpEnabled(true)
@@ -37,11 +38,11 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
         var klo = findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.klo)
         var kol = findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.klo).text
         val list = findViewById<ListView>(R.id.list)
-        val list2 = findViewById<ListView>(R.id.list2)
+
         val list3 = findViewById<ListView>(R.id.list3)
 /////////////////////////////////////////////////
 
-       
+
         val kak = findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.out)
         if (k != null) {
 
@@ -59,20 +60,18 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
                 // TODO: сделать чтобы выходило по порядку
 
 
-                val kolich = MutableList(k.toInt()) {
-                    (it + 1)
-                }
-                val off = MutableList (k.toInt()){
-                    "Убрать"
-                }
+
+
                 if (kol.toString() == "") {
                     kak.error= "Введите имя"
                 }
                 //////////////////////////////////////
-                if (kol.toString() != ""){
+                if (kol.toString() != "" && sg != k.toInt()){
                     klo.text
                     kak.error = null
-                    pol.add(klo.text)
+                    sg += 1
+                    pol.add(klo.text.toString())
+      off.add("Удалить")
 
                     list.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , pol)
                     list.setOnItemClickListener { parent, view, position, id ->
@@ -91,8 +90,7 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
                                     list.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, pol)
                                     off.add("Убрать")
                                     list3.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , off)
-                                    kolich.add(k.toInt()+1  )
-                                    list2.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , kolich)
+
                                     if (plo == 1){
                                         plo = 0}
 
@@ -109,53 +107,84 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
                     }
 
 
-                    list2.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , kolich)
-                    list2.setOnItemClickListener { parent, view, position, id -> ses += 0
-                        if (k.toInt() == 5&& kol.toString() == "Жора"){
-                            AlertDialog.Builder(this)
 
-                                .setTitle(" Error 002")
-                                .setMessage("Ты куда зашёл ?")
-                                .setView(createButton())
-
-                                .setNegativeButton("Назат") { _, _ -> ses == 0}
-
-
-
-                                .create()
-                                .show()}
-                        else {
-                            AlertDialog.Builder(this)
-
-                                .setTitle(" Error 002")
-                                .setMessage("Ты куда зашёл ?")
-
-
-                                .setNegativeButton("Назат") { _, _ -> ses == 0 }
-
-
-                                .create()
-                                .show()
-                        }
-                        Log.d("you loh" , "$position")
-                    }
 
 
                     list3.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , off)
                     list3.setOnItemClickListener { parent, view, position, id ->
-
+                         sg -= 1
                         off.removeAt(0)
                         pol.removeAt(0)
-                        kolich.removeAt(0)
+
                         list3.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , off)
-                        list2.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , kolich)
+
                         list.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , pol)
                         Log.d("you loh" , "$position")
 
                     }
-                } }
+                }
+               if (kol.toString() != "" && sg > k.toInt()){
+                   ses += 4
+                   AlertDialog.Builder(this)
+                       .setTitle(" Error 003")
+                       .setMessage("Людей больше чем ты подсчитал ?")
+                       .setView(createButton())
 
-            
+                       .setNegativeButton("Назат") { _, _ ->ses = 0
+
+                       }
+
+               }
+           }
+
+            prod.setOnClickListener {
+                if (pol.toString() != "" && sg == k.toInt() ){
+                    var intent = Intent(this@MainActivity2, MainActivity4::class.java).apply {
+
+                    }
+                    startActivity(intent)
+                }
+                else{
+                    if (k.toInt() == 5)
+                    AlertDialog.Builder(this)
+
+                        .setTitle(" Error 003")
+                        .setMessage("Сначала добавь людей ")
+                        .setView(createButton())
+
+                        .setNegativeButton("Назат") { _, _ ->
+
+                            }
+                    else{
+                        AlertDialog.Builder(this)
+
+                            .setTitle(" Error 003")
+                            .setMessage("Сначала добавь людей ")
+
+
+                            .setNegativeButton("Назат") { _, _ ->
+
+                            }
+
+
+                    }
+                        }
+                if (plo.toString() != "" && sg != 0){
+                    ses += 2
+                    AlertDialog.Builder(this)
+
+                        .setTitle(" Error 003")
+                        .setMessage("Точно хочеш продолжить?")
+                        .setView(createButton())
+
+                        .setNegativeButton("Назат") { _, _ ->ses = 0
+
+                        }
+                }
+
+                }
+
+            }
 
 
 
@@ -191,12 +220,12 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
 
 
         }
-}var ses = 0
+var ses = 0
 
     var gog = 0
 
-   
-    
+
+
     @SuppressLint("CutPasteId")                                  //
     private fun createButton(): Button {                                 //
         return Button(this).apply {
@@ -219,9 +248,21 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
 
                 }
             }
+            if ( ses == 2){
+                setText ("Продолжить")
+                var intent = Intent(this@MainActivity2, MainActivity4::class.java).apply {
+
+                }
+                startActivity(intent)
+            }
+            if ( ses == 4){
+                setText (" Добавить ещё 5 людей ")
+                setOnClickListener {
+                    k + 5
+                }
+            }
         }
     }
-
 
 }
 
@@ -229,4 +270,7 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
 
 
 
+
 val pol = mutableListOf<String>()
+val off = mutableListOf<String>()
+var k = lydi
