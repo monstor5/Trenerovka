@@ -9,13 +9,65 @@
     android:background="#ffff19">
 
     <TextView
+        android:id="@+id/textView8"
+        android:layout_width="410dp"
+        android:layout_height="86dp"
+        android:text="TextView"
+        android:textSize="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.751"
+        android:textColor="@android:color/holo_orange_light"/>
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="410dp"
+        android:layout_height="86dp"
+        android:textSize="60dp"
+        android:text="Отжимается"
+
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="@+id/textView7"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.675"
+        android:textColor="@android:color/holo_orange_dark"/>
+
+    <TextView
         android:id="@+id/textView7"
         android:layout_width="410dp"
         android:layout_height="86dp"
         android:text="TextView"
+        android:textSize="70dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintEnd_toEndOf="@+id/textView8"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textView8"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.794"
+        android:textColor="@android:color/holo_orange_light"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/but"
+        android:layout_width="189dp"
+        android:layout_height="51dp"
+        android:backgroundTint="#ffff19"
+        android:text="Назат (в начало)"
+        android:textAllCaps="false"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="15dp"
+        app:cornerRadius="9dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/textView8"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.568"
+        app:strokeColor="@android:color/black"
+        app:strokeWidth="0.6dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

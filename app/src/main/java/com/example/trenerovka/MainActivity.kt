@@ -6,6 +6,7 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View.VISIBLE
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
@@ -28,13 +29,22 @@ class MainActivity : AppCompatActivity() {
         //
         val plus = findViewById<Button>(R.id.button2)
         //
-
+val sf = findViewById<Button>(R.id.bu2)
 
         //
         val prod = findViewById<Button>(R.id.but)
         //
 
         kol.text = "       $lydi"
+        if (gg == 1){
+            sf.visibility = VISIBLE
+            sf.setOnClickListener {
+                var lntent = Intent(this@MainActivity, MainActivity5::class.java).apply {
+
+                }
+                startActivity(lntent)
+            }
+        }
         min.setOnClickListener{
 
 

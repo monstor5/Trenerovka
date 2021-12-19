@@ -44,10 +44,10 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
 
 
         val kak = findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.out)
-        if (k != null) {
+        if (lydi != null) {
 
-            val momn = (0..k.toInt())
-            if (k.toInt() == 1){
+
+            if (lydi.toInt() == 1){
                 kak.hint = "Укакжи своё имя !"
             }
 
@@ -66,13 +66,13 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
                     kak.error= "Введите имя"
                 }
                 //////////////////////////////////////
-                if (kol.toString() != "" && sg != k.toInt()){
+                if (kol.toString() != "" && sg != lydi.toInt()){
                     klo.text
                     kak.error = null
                     sg += 1
                     pol.add(klo.text.toString())
       off.add("Удалить")
-        klo.text.count()
+        klo.text?.clear()
                     list.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , pol)
                     list.setOnItemClickListener { parent, view, position, id ->
                         ses += 1
@@ -123,7 +123,7 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
 
                     }
                 }
-               if (kol.toString() != "" && sg == k){
+               if (kol.toString() != "" && sg == lydi){
                    ses += 4
                    AlertDialog.Builder(this)
                        .setTitle(" Error 003")
@@ -140,14 +140,15 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
            }
 
             prod.setOnClickListener {
-                if (pol.toString() != "" && sg == k.toInt() ){
+                lst = 0
+                if (pol.toString() != "" && sg == lydi.toInt() ){
                     var intent = Intent(this@MainActivity2, MainActivity4::class.java).apply {
 
                     }
                     startActivity(intent)
                 }
                 else{
-                    if (k.toInt() == 5)
+                    if (lydi.toInt() == 5)
                     AlertDialog.Builder(this)
 
                         .setTitle(" Error 003")
@@ -159,7 +160,24 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
                             }
                             .create()
                             .show()
-                    else{
+                    if (plo.toString() != "" && sg != 0){
+                        lst += 1
+                        ses += 2
+                        AlertDialog.Builder(this)
+
+                                .setTitle(" Error 003")
+                                .setMessage("Точно хочеш продолжить?")
+                                .setView(createButton())
+
+                                .setNegativeButton("Назат") { _, _ ->ses = 0
+
+                                }
+                                .create()
+                                .show()
+                    }
+
+
+                 if (sg != lydi && lst == 0){
                         AlertDialog.Builder(this)
 
                             .setTitle(" Error 003")
@@ -172,24 +190,9 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
                                 .create()
                                 .show()
 
-                    }
+                    } }
                         }
-                if (plo.toString() != "" && sg != 0){
-                    ses += 2
-                    AlertDialog.Builder(this)
 
-                        .setTitle(" Error 003")
-                        .setMessage("Точно хочеш продолжить?")
-                        .setView(createButton())
-
-                        .setNegativeButton("Назат") { _, _ ->ses = 0
-
-                        }
-                            .create()
-                            .show()
-                }
-
-                }
 
             }
 
@@ -230,6 +233,7 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
 var ses = 0
 
     var gog = 0
+    var lst =0
 
 
 
@@ -257,15 +261,16 @@ var ses = 0
             }
             if ( ses == 2){
                 setText ("Продолжить")
+                setOnClickListener {
                 var intent = Intent(this@MainActivity2, MainActivity4::class.java).apply {
 
                 }
                 startActivity(intent)
-            }
+            }}
             if ( ses == 4){
                 setText (" Добавить ещё 5 людей ")
                 setOnClickListener {
-                    k + 5
+                    lydi += 5
                 }
             }
         }
@@ -280,4 +285,3 @@ var ses = 0
 
 val pol = mutableListOf<String>()
 val off = mutableListOf<String>()
-var k = lydi
