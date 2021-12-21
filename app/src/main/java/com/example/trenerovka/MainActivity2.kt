@@ -30,7 +30,7 @@ class MainActivity2 : AppCompatActivity() {
         var sg = 0
 val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.but)
         var plo = 0
-
+var xcv = 0
 
         val aB = supportActionBar
         aB!!.title = "Отжимашки"
@@ -42,8 +42,58 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
         val list = findViewById<ListView>(R.id.list)
 
         val list3 = findViewById<ListView>(R.id.list3)
+       sg = PreferenceManager
+                .getDefaultSharedPreferences(applicationContext)
+                .getInt("op" , 0)
 /////////////////////////////////////////////////
+if (pol.toString() != "" && xcv == 0){
+    lst = 1
+    list.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , pol)
+    list.setOnItemClickListener { parent, view, position, id ->
+        ses += 1
 
+
+        AlertDialog.Builder(this)
+
+                .setTitle(" Error 003")
+                .setMessage("Ты точно хочеш добавить ещё кого то ?")
+                .setView(createButton())
+
+                .setNegativeButton("Назат") { _, _ -> ses -= 1
+                    if (gog == 1&& plo  > 0) {
+                        pol.add(kol.toString())
+                        list.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, pol)
+                        off.add("Убрать")
+                        list3.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , off)
+
+                        if (plo == 1){
+                            plo = 0}
+
+                        gog -= 1
+                    }
+                }
+
+
+
+                .create()
+                .show()
+
+        Log.d("you loh" , "$position")
+    }
+
+    list3.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , off)
+    list3.setOnItemClickListener { parent, view, position, id ->
+        sg -= 1
+        off.removeAt(0)
+        pol.removeAt(0)
+
+        list3.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , off)
+
+        list.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , pol)
+        Log.d("you loh" , "$position")
+
+    }
+}
 
         val kak = findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.out)
         if (lydi != null) {
@@ -69,6 +119,7 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
                 }
                 //////////////////////////////////////
                 if (kol.toString() != "" && sg != lydi.toInt()){
+                    xcv =1
                     klo.text
                     kak.error = null
                     sg += 1
@@ -139,6 +190,7 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
                            .show()
 
                }
+
            }
 
             prod.setOnClickListener {
@@ -193,9 +245,15 @@ val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.
                                 .show()
 
                     } }
+                       xcv =0
                         }
 
 
+            PreferenceManager
+                    .getDefaultSharedPreferences(applicationContext)
+                    .edit()
+                    .putInt("op" , sg)
+                    .commit()
             }
 
 

@@ -19,7 +19,7 @@ class MainActivity4 : AppCompatActivity() {
         val aB = supportActionBar
         aB!!.title = "Отжимашки"
         aB.setDisplayHomeAsUpEnabled(true)
-
+var xg = 0
         val plu = findViewById<Button>(R.id.button2)
         val plu2 = findViewById<Button>(R.id.but2)
         val min  = findViewById<Button>(R.id.button)
@@ -27,7 +27,13 @@ class MainActivity4 : AppCompatActivity() {
         val kolo = findViewById<TextView>(R.id.text)
         val kol = findViewById<TextView>(R.id.textv)
         val prod = findViewById<Button>(R.id.button10)
+        if ( bhb2 != 0 && xg ==0){
+            kol.text = "$bhb2"
+            kolo.text = "$bhb"}
+
+
         plu.setOnClickListener {
+            xg = 1
           if (mm == 0){
             bhb += 1
             kolo.text = "$bhb"}
@@ -69,6 +75,7 @@ class MainActivity4 : AppCompatActivity() {
             }
         }
         min.setOnClickListener {
+            xg = 1
            if ( bhb != 0) {
                bhb -= 1
                kolo.text = "$bhb"
@@ -89,6 +96,7 @@ class MainActivity4 : AppCompatActivity() {
             }
         }
         plu2.setOnClickListener {
+            xg = 1
           if ( m == 0 && bhb2 != 400)
             bhb2 += 1
             kol.text = "$bhb2"
@@ -128,6 +136,7 @@ class MainActivity4 : AppCompatActivity() {
         }
 
         min1.setOnClickListener {
+            xg = 1
            if (bhb2 != bhb  && bhb2 !=1){
             bhb2 -= 1
             kol.text ="$bhb2"}
@@ -151,6 +160,7 @@ class MainActivity4 : AppCompatActivity() {
             }
     }
         prod.setOnClickListener {
+            xg = 0
             val intent = Intent (this@MainActivity4 , MainActivity5::class.java).apply {
 
                 putExtra("op", "$bhb")
