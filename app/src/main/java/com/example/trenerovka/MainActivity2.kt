@@ -27,7 +27,7 @@ class MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
         /////////////////////////////
-        var sg = 0
+
 val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.but)
         var plo = 0
 var xcv = 0
@@ -42,9 +42,7 @@ var xcv = 0
         val list = findViewById<ListView>(R.id.list)
 
         val list3 = findViewById<ListView>(R.id.list3)
-       sg = PreferenceManager
-                .getDefaultSharedPreferences(applicationContext)
-                .getInt("op" , 0)
+
 /////////////////////////////////////////////////
 if (pol.toString() != "" && xcv == 0){
     lst = 1
@@ -137,18 +135,7 @@ if (pol.toString() != "" && xcv == 0){
                             .setMessage("Ты точно хочеш добавить ещё кого то ?")
                             .setView(createButton())
 
-                            .setNegativeButton("Назат") { _, _ -> ses -= 1
-                                if (gog == 1&& plo  > 0) {
-                                    pol.add(kol.toString())
-                                    list.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, pol)
-                                    off.add("Убрать")
-                                    list3.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , off)
-
-                                    if (plo == 1){
-                                        plo = 0}
-
-                                    gog -= 1
-                                }
+                            .setNegativeButton("Назат") { _, _ ->
                             }
 
 
@@ -200,11 +187,7 @@ if (pol.toString() != "" && xcv == 0){
 
                     }
                     startActivity(intent)
-                    PreferenceManager
-                            .getDefaultSharedPreferences(applicationContext)
-                            .edit()
-                            .putInt("op" , sg)
-                            .commit()
+
                 }
                 else{
                     if (lydi.toInt() == 5)
@@ -233,11 +216,7 @@ if (pol.toString() != "" && xcv == 0){
                                 }
                                 .create()
                                 .show()
-                        PreferenceManager
-                                .getDefaultSharedPreferences(applicationContext)
-                                .edit()
-                                .putInt("op" , sg)
-                                .commit()
+
                     }
 
 
@@ -306,11 +285,12 @@ var ses = 0
     @SuppressLint("CutPasteId")                                  //
     private fun createButton(): Button {                                 //
         return Button(this).apply {
-            setText ("Эта кнопка ничего не делает !")
+
             backgroundTintList =
                 ColorStateList.valueOf(Color.TRANSPARENT)
 
             if (ses == 0) {
+                setText ("Эта кнопка ничего не делает !")
                 setOnClickListener {
                     var intent = Intent(this@MainActivity2, MainActivity3::class.java).apply {
 
@@ -319,9 +299,12 @@ var ses = 0
                 }
             }
             if (ses == 1){
-                setText ("Добавить когото ?")
+                setText ("Добавить инфу о человеке")
                 setOnClickListener {
-                    gog = 1
+                    var зntent = Intent(this@MainActivity2, MainActivity6::class.java).apply {
+
+                    }
+                    startActivity(зntent)
 
                 }
             }
@@ -349,3 +332,4 @@ var ses = 0
 
 val pol = mutableListOf<String>()
 val off = mutableListOf<String>()
+var sg = 0

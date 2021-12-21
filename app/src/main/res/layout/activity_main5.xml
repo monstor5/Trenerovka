@@ -94,7 +94,7 @@
         android:layout_width="189dp"
         android:layout_height="51dp"
         android:backgroundTint="#ffff19"
-        android:text="Сохронить текст"
+        android:text="Ещё раз (рандом)"
         android:textAllCaps="false"
         android:textColor="@android:color/holo_orange_dark"
         android:textSize="15dp"

@@ -27,6 +27,15 @@ var xg = 0
         val kolo = findViewById<TextView>(R.id.text)
         val kol = findViewById<TextView>(R.id.textv)
         val prod = findViewById<Button>(R.id.button10)
+
+        if (dfgj == 1 ){
+            val zntent = Intent (this@MainActivity4 , MainActivity5::class.java).apply {
+
+
+            }
+            startActivity(zntent)
+        }
+
         if ( bhb2 != 0 && xg ==0){
             kol.text = "$bhb2"
             kolo.text = "$bhb"}

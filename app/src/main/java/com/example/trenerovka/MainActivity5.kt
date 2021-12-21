@@ -18,19 +18,16 @@ import android.widget.TextView
                 super.onCreate(savedInstanceState)
                 setContentView(R.layout.activity_main5)
                 var jkj = findViewById<TextView>(R.id.textView7)
-var sws = findViewById<TextView>(R.id.textView9)
+
                 var ss = findViewById<TextView>(R.id.textView8)
                 var zx = findViewById<Button>(R.id.but)
                 var zgh = findViewById<Button>(R.id.but5)
                 var zg = findViewById<Button>(R.id.but6)
                 zg.setOnClickListener {
-                    jkj.text = PreferenceManager
-                            .getDefaultSharedPreferences(applicationContext)
-                            .getString("jkj" , "")
-                    ss.text = PreferenceManager
-                            .getDefaultSharedPreferences(applicationContext)
-                            .getString("ss", "")
-
+                    var zntent = Intent(this@MainActivity5, MainActivity4::class.java).apply {
+  dfgj += 1
+                    }
+                    startActivity(zntent)
 
                 }
                         zgh.setOnClickListener {
@@ -63,9 +60,9 @@ var sws = findViewById<TextView>(R.id.textView9)
                         .edit()
                         .putInt("op" , bhb)
                         .putInt( "ot", bhb2)
-                        .putString("jkj", jkj.text.toString())
-                        .putString("ss", ss.text.toString())
+
                         .commit()
             }
 }
 var gg = 0
+var dfgj = 0
