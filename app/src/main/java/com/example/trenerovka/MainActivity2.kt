@@ -200,6 +200,11 @@ if (pol.toString() != "" && xcv == 0){
 
                     }
                     startActivity(intent)
+                    PreferenceManager
+                            .getDefaultSharedPreferences(applicationContext)
+                            .edit()
+                            .putInt("op" , sg)
+                            .commit()
                 }
                 else{
                     if (lydi.toInt() == 5)
@@ -228,6 +233,11 @@ if (pol.toString() != "" && xcv == 0){
                                 }
                                 .create()
                                 .show()
+                        PreferenceManager
+                                .getDefaultSharedPreferences(applicationContext)
+                                .edit()
+                                .putInt("op" , sg)
+                                .commit()
                     }
 
 
@@ -249,11 +259,7 @@ if (pol.toString() != "" && xcv == 0){
                         }
 
 
-            PreferenceManager
-                    .getDefaultSharedPreferences(applicationContext)
-                    .edit()
-                    .putInt("op" , sg)
-                    .commit()
+
             }
 
 
