@@ -12,7 +12,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Укажите ваши имена !"
+        android:hint="Укажите вашу фамилию"
         android:textColor="@android:color/holo_red_light"
         android:textColorHint="@android:color/holo_orange_dark"
         app:boxStrokeColor="#0BE1A4"
@@ -36,7 +36,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Укажите ваши имена !"
+        android:hint="Укажите ваше отчество "
         android:textColor="@android:color/holo_red_light"
         android:textColorHint="@android:color/holo_orange_dark"
         app:boxStrokeColor="#0BE1A4"
@@ -56,7 +56,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textV5"
         android:layout_width="277dp"
         android:layout_height="60dp"
         android:text="TextView"
@@ -67,5 +67,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.209" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/but5"
+        android:layout_width="189dp"
+        android:layout_height="51dp"
+        android:backgroundTint="#ffff19"
+        android:text="Сохронить"
+        android:textAllCaps="false"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="15dp"
+        app:cornerRadius="9dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/out1"
+        app:layout_constraintVertical_bias="0.415"
+        app:strokeColor="@android:color/black"
+        app:strokeWidth="0.6dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

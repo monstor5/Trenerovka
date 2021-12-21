@@ -34,6 +34,7 @@ var xg = 0
 
             }
             startActivity(zntent)
+            dfgj -= 1
         }
 
         if ( bhb2 != 0 && xg ==0){

@@ -28,6 +28,7 @@ class MainActivity2 : AppCompatActivity() {
         setContentView(R.layout.activity_main2)
         /////////////////////////////
 
+
 val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.but)
         var plo = 0
 var xcv = 0
@@ -48,35 +49,82 @@ if (pol.toString() != "" && xcv == 0){
     lst = 1
     list.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , pol)
     list.setOnItemClickListener { parent, view, position, id ->
-        ses += 1
+        if(seseli == 1){
+            ses += 5
+            if(mns == 1) {
+                if (pol.toString() != "") {
+                    val polk = pol.get(0)
+                    AlertDialog.Builder(this)
+
+                            .setTitle(" Информация об игроке")
+
+                            .setMessage("Имя - $polk ___" +
+                                    " Фамилия - $jspr ____" +
+                                    " Отчество - $jstr")
+                            .setView(createButton())
+
+                            .setNegativeButton("Назат") { _, _ ->
+                                ses -= 5
+                            }
 
 
-        AlertDialog.Builder(this)
-
-                .setTitle(" Error 003")
-                .setMessage("Ты точно хочеш добавить ещё кого то ?")
-                .setView(createButton())
-
-                .setNegativeButton("Назат") { _, _ -> ses -= 1
-                    if (gog == 1&& plo  > 0) {
-                        pol.add(kol.toString())
-                        list.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, pol)
-                        off.add("Убрать")
-                        list3.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , off)
-
-                        if (plo == 1){
-                            plo = 0}
-
-                        gog -= 1
-                    }
+                            .create()
+                            .show()
                 }
 
+                Log.d("you loh", "$position")
+
+            }
+            if(mns == 0) {
+                if (pol.toString() != "") {
+                    val polk = pol.get(0)
+                    AlertDialog.Builder(this)
+
+                            .setTitle(" Информация об игроке")
+
+                            .setMessage("Имя - $polk")
+                            .setView(createButton())
+
+                            .setNegativeButton("Назат") { _, _ ->
+                                ses -= 5
+                            }
 
 
-                .create()
-                .show()
+                            .create()
+                            .show()
+                }
 
-        Log.d("you loh" , "$position")
+                Log.d("you loh", "$position")
+
+            }
+        }
+
+
+
+        if(seseli !=1) {
+            ses += 1
+            if (pol.toString()!= "" ){
+                val polk = pol.get(0)
+            AlertDialog.Builder(this)
+
+                    .setTitle("Информация об игроке")
+                    .setMessage("Имя - $polk")
+                    .setView(createButton())
+
+                    .setNegativeButton("Назат") { _, _ ->ses -= 1
+                    }
+
+
+
+                    .create()
+                    .show()
+        }
+            Log.d("you loh" , "$position")
+        }
+
+
+
+
     }
 
     list3.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , off)
@@ -84,7 +132,7 @@ if (pol.toString() != "" && xcv == 0){
         sg -= 1
         off.removeAt(0)
         pol.removeAt(0)
-
+        mns = 0
         list3.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , off)
 
         list.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , pol)
@@ -107,7 +155,6 @@ if (pol.toString() != "" && xcv == 0){
 
                 if (plo == 0){
                     plo += 1}
-                // TODO: сделать чтобы выходило по порядку
 
 
 
@@ -126,24 +173,79 @@ if (pol.toString() != "" && xcv == 0){
         klo.text?.clear()
                     list.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , pol)
                     list.setOnItemClickListener { parent, view, position, id ->
-                        ses += 1
+                        if(seseli == 1){
+                            ses += 5
+                            if(mns == 1) {
+                                if (pol.toString() != "") {
+                                    val polk = pol.get(0)
+                                    AlertDialog.Builder(this)
+
+                                            .setTitle(" Информация об игроке")
+
+                                            .setMessage("Имя - $polk ___" +
+                                                    " Фамилия - $jspr ____" +
+                                                    " Отчество - $jstr")
+                                            .setView(createButton())
+
+                                            .setNegativeButton("Назат") { _, _ ->
+                                                ses -= 5
+                                            }
 
 
-                        AlertDialog.Builder(this)
+                                            .create()
+                                            .show()
+                                }
 
-                            .setTitle(" Error 003")
-                            .setMessage("Ты точно хочеш добавить ещё кого то ?")
-                            .setView(createButton())
+                                Log.d("you loh", "$position")
 
-                            .setNegativeButton("Назат") { _, _ ->
                             }
+                            if(mns == 0) {
+                                if (pol.toString() != "") {
+                                    val polk = pol.get(0)
+                                    AlertDialog.Builder(this)
+
+                                            .setTitle(" Информация об игроке")
+
+                                            .setMessage("Имя - $polk")
+                                            .setView(createButton())
+
+                                            .setNegativeButton("Назат") { _, _ ->
+                                                ses -= 5
+                                            }
+
+
+                                            .create()
+                                            .show()
+                                }
+
+                                Log.d("you loh", "$position")
+
+                            }
+                        }
 
 
 
-                            .create()
-                            .show()
+                        if(seseli !=1) {
+                           ses += 1
+                           if (pol.toString()!= "" ) {
+                               val polk = pol.get(0)
+                               AlertDialog.Builder(this)
 
+                                       .setTitle("Информация об игроке")
+                                       .setMessage("Имя - $polk")
+                                       .setView(createButton())
+
+                                       .setNegativeButton("Назат") { _, _ ->
+                                           ses -= 1
+                                       }
+
+
+                                       .create()
+                                       .show()
+                           }
                         Log.d("you loh" , "$position")
+                        }
+
                     }
 
 
@@ -155,7 +257,7 @@ if (pol.toString() != "" && xcv == 0){
                          sg -= 1
                         off.removeAt(0)
                         pol.removeAt(0)
-
+                        mns = 0
                         list3.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , off)
 
                         list.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , pol)
@@ -322,6 +424,16 @@ var ses = 0
                     lydi += 5
                 }
             }
+            if (ses == 5){
+                setText("Изменить инфу")
+                setOnClickListener {
+                    var pntent = Intent(this@MainActivity2, MainActivity6::class.java).apply {
+                        unit += 1
+
+                    }
+                    startActivity(pntent)
+                }
+            }
         }
     }
 
@@ -333,3 +445,5 @@ var ses = 0
 val pol = mutableListOf<String>()
 val off = mutableListOf<String>()
 var sg = 0
+var unit = 0
+var mns = 1
