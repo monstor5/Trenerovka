@@ -27,7 +27,7 @@ class MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
         /////////////////////////////
-
+   val a = intent?.extras?.getString("item")
 
 val prod = findViewById<com.google.android.material.button.MaterialButton>(R.id.but)
         var plo = 0
@@ -129,6 +129,9 @@ if (pol.toString() != "" && xcv == 0){
 
     list3.adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1 , off)
     list3.setOnItemClickListener { parent, view, position, id ->
+        val intent = Intent(this, MainActivity2::class.java)
+        intent.putExtra("item",off[position])
+        startActivity(intent)
         sg -= 1
         off.removeAt(0)
         pol.removeAt(0)
